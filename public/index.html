@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Heru Rusdianto">
+    <title>Text Counter - Count Characters, Words & More</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    <div class="topbar">
+        <a href="https://github.com/herusdianto" class="github-link" target="_blank" rel="noopener noreferrer" title="GitHub Repository">
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.01.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.11.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" fill="currentColor"/>
+            </svg>
+        </a>
+        <div class="theme-toggle">
+            <button id="theme-switch" aria-label="Toggle dark/light mode" class="theme-toggle-btn">
+                <span id="theme-icon"></span>
+            </button>
+        </div>
+    </div>
+
+    <header>
+        <h1>Text Counter</h1>
+        <p>Count characters, words, sentences, and more with ease</p>
+        <p class="client-side-note"><strong>100% Client-side:</strong> All processing happens in your browser. <u>No data is sent to any server.</u></p>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="input-section">
+                <h2>Input Text</h2>
+                <textarea id="input-text" class="input-textarea" placeholder="Enter or paste your text here...">The art of programming is the art of organizing complexity, of mastering multitude and avoiding its bastard chaos as effectively as possible. Programming is not just about writing code; it's about solving problems, creating solutions, and building systems that make life easier for everyone. A good programmer writes code that humans can understand, not just machines. The best code is elegant, efficient, and maintainable, allowing future developers to build upon it without fear of breaking existing functionality.
+
+In the world of software development, there are countless programming languages, frameworks, and tools available to developers. Each language has its own strengths and weaknesses, and choosing the right one depends on the specific requirements of the project. JavaScript, for example, is perfect for web development and has evolved significantly over the years with modern ES6+ features. Python excels in data science, machine learning, and automation tasks. Java remains a solid choice for enterprise applications, while Rust offers memory safety without sacrificing performance.
+
+The importance of clean code cannot be overstated. When developers write code that is easy to read and understand, they save countless hours of debugging and maintenance in the future. Clean code follows consistent naming conventions, uses meaningful variable names, and includes helpful comments where necessary. It avoids unnecessary complexity and embraces simplicity. As Robert C. Martin famously said, "Clean code is simple and direct. Clean code reads like well-written prose."
+
+Collaboration is at the heart of modern software development. Teams of developers work together using version control systems like Git to manage code changes, track history, and coordinate their efforts. Code reviews help ensure quality and share knowledge among team members. Continuous integration and continuous deployment (CI/CD) pipelines automate testing and deployment processes, allowing teams to deliver software faster and with greater confidence. The open-source community has also played a vital role in advancing technology by sharing code, libraries, and frameworks freely.
+
+As technology continues to evolve at an unprecedented pace, developers must commit to lifelong learning. New frameworks, languages, and paradigms emerge regularly, and staying current requires dedication and curiosity. The best developers are those who embrace change, experiment with new technologies, and never stop asking questions. They understand that the journey of learning never ends, and that every challenge is an opportunity to grow and improve. In this ever-changing landscape, adaptability and a growth mindset are the most valuable skills a developer can possess.</textarea>
+            </div>
+
+            <!-- Statistics Section -->
+            <div class="stats-section">
+                <h2>Text Statistics</h2>
+                
+                <!-- Basic Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="char-count">0</div>
+                        <div class="stat-label">Characters & spaces</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="char-no-space-count">0</div>
+                        <div class="stat-label">Characters no spaces</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="word-count">0</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="sentence-count">0</div>
+                        <div class="stat-label">Sentences</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="paragraph-count">0</div>
+                        <div class="stat-label">Paragraphs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="line-count">0</div>
+                        <div class="stat-label">Lines</div>
+                    </div>
+                </div>
+
+                <!-- Time Estimates -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="reading-time">0 min</div>
+                        <div class="stat-label">Reading Time (200 wpm)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="speaking-time">0 min</div>
+                        <div class="stat-label">Speaking Time (150 wpm)</div>
+                    </div>
+                </div>
+
+                <!-- Frequency Analysis -->
+                <div class="frequency-section">
+                    <div class="frequency-card">
+                        <h3>Top Characters</h3>
+                        <div id="char-frequency" class="frequency-list"></div>
+                    </div>
+                    <div class="frequency-card">
+                        <h3>Top Words</h3>
+                        <div id="word-frequency" class="frequency-list"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- Status Messages -->
+        <div id="status" class="status hidden"></div>
+    </div>
+
+    <footer>
+        <p>Created by <a href="https://herusdianto.github.io/" target="_blank" rel="noopener noreferrer">Heru Rusdianto</a> with AI Assistance</p>
+        <p class="copyright">
+            © <span id="currentYear"></span> All rights reserved
+        </p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
